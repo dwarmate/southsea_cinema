@@ -1,26 +1,32 @@
 import 'package:flutter/material.dart';
 
-
 void main() {
   runApp(const SouthseaCinemaApp());
 }
 
-
 class SouthseaCinemaApp extends StatelessWidget {
-  
     const SouthseaCinemaApp({super.key});
 
   @override
-Widget build(BuildContext context) {
-  return MaterialApp(
-    title: 'Sandwich Shop App',
-    home: Scaffold(
-      appBar: AppBar(title: const Text('Sandwich Counter')),
-      body: const Center(
-        child: Text('Welcome to the Sandwich Shop!'),
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Sandwich Shop App',
+      home: Scaffold(
+        appBar: AppBar(title: const Text('Sandwich Counter')),
+        body: const Center(child: Text('Welcome to the Sandwich Shop!'),),
       ),
-    ),
-  );
+    );
+  }
 }
 
+class OrderItemDisplay extends StatelessWidget {
+  final String itemType;
+  final int quantity;
+
+  OrderItemDisplay(this.quantity, this.itemType, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text('This is a placeholder for OrderItemDisplay');
+  }
 }
