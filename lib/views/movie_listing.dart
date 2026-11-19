@@ -16,7 +16,25 @@ class MovieListing extends StatelessWidget {
       ),
       drawer: const NavDrawer(),
       body: Container(
-        child: const SizedBox.shrink(),
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text('The Dark Knight'),
+            const Text('Runtime: 152 minutes'),
+            const Text('Age rating: 12A'),
+            const SizedBox(height: 8),
+            const Text(
+                'Batman faces the Joker, who wants to throw Gotham City into chaos.'),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                print('Add to order button pressed');
+              },
+              child: const Text('Add to order'),
+            ),
+          ],
+        ),
       ),
     );
   }
