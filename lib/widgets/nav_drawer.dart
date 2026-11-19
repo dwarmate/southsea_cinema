@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
+import 'package:southsea_cinema/views/movie_listing.dart';
 
 class NavDrawer extends StatelessWidget {
   const NavDrawer({super.key});
@@ -55,10 +56,13 @@ class DrawerTile extends StatelessWidget {
     return ListTile(
       title: Text(title, style: const TextStyle(color: cinemaFontWhite)),
       onTap: () {
-        Navigator.pop(context);
-        if (route != null) {
-          Navigator.pushNamed(context, route!);
-        }
+        final navigator = Navigator.of(context);
+        navigator.pop(); // Close the drawer.
+        navigator.push(
+          MaterialPageRoute<void>(
+            builder: (_) => const MovieListing(),
+          ),
+        );
       },
     );
   }
