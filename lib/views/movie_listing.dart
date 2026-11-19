@@ -11,6 +11,7 @@ class MovieListing extends StatefulWidget {
 
 class _MovieListingState extends State<MovieListing> {
   int _ticketQuantity = 1;
+  String _bookingMessage = '';
 
   @override
   Widget build(BuildContext context) {
@@ -57,10 +58,15 @@ class _MovieListingState extends State<MovieListing> {
             const SizedBox(height: 12),
             ElevatedButton(
               onPressed: () {
-                print('Add to order button pressed');
+                setState(() {
+                  _bookingMessage =
+                      'Added $_ticketQuantity tickets to the order';
+                });
               },
               child: const Text('Add to order'),
             ),
+            const SizedBox(height: 8),
+            Text(_bookingMessage),
           ],
         ),
       ),
