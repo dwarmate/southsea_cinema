@@ -1,14 +1,14 @@
-class Sandwich {
+class Movie {
   final String id;
-  final String name;
+  final String title;
   final String description;
   final double price;
-  final String imagePath;
+  final String posterPath;
 
-  const Sandwich(
+  const Movie(
       {required this.id,
-      required this.name,
+      required this.title,
       required this.description,
       required this.price,
-      required this.imagePath});
+      required this.posterPath});
 }
