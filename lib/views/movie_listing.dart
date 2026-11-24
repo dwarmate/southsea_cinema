@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/constants.dart';
 import 'package:southsea_cinema/widgets/nav_drawer.dart';
+import 'package:southsea_cinema/models/movie.dart';
 
 class MovieListing extends StatefulWidget {
-  const MovieListing({super.key});
+  final Movie movie;
+
+  const MovieListing({super.key, required this.movie});
 
   @override
   State<MovieListing> createState() => _MovieListingState();
@@ -15,6 +18,7 @@ class _MovieListingState extends State<MovieListing> {
 
   @override
   Widget build(BuildContext context) {
+    final movie = widget.movie;
     return Scaffold(
       appBar: AppBar(
         title: const Text(appTitle, style: cinemaHeaderStyle),
@@ -28,12 +32,19 @@ class _MovieListingState extends State<MovieListing> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('The Dark Knight'),
-            const Text('Runtime: 152 minutes'),
-            const Text('Age rating: 12A'),
+            Image.asset(
+              movie.posterImagePath,
+              width: 100,
+              height: 150,
+              fit: BoxFit.cover,
+            ),
+            const SizedBox(height: 12),
+            Text(movie.title),
+            Text('Age rating: ${movie.ageRating}'),
+            Text('Screening time: ${movie.screeningTime}'),
+            Text('Ticket price: £${movie.ticketPrice.toStringAsFixed(2)}'),
             const SizedBox(height: 8),
-            const Text(
-                'Batman faces the Joker, who wants to throw Gotham City into chaos.'),
+            Text(movie.synopsis),
             const SizedBox(height: 16),
             DropdownMenu<int>(
               label: const Text('Ticket quantity'),
