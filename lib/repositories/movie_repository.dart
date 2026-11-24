@@ -11,7 +11,7 @@ class MovieRepository {
         ageRating: '12',
         screeningTime: '6:00 PM',
         ticketPrice: 8.50,
-        posterImagePath: 'assets/images/red_notice.jpg',
+        posterImagePath: 'assets/images/red_notice.jpeg',
       ),
       Movie(
         id: '72-hours',
@@ -21,7 +21,7 @@ class MovieRepository {
         ageRating: '15',
         screeningTime: '8:30 PM',
         ticketPrice: 9.00,
-        posterImagePath: 'assets/images/72_hours.jpg',
+        posterImagePath: 'assets/images/72_hours.jpeg',
       ),
     ];
   }

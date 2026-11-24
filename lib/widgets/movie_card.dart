@@ -50,7 +50,7 @@ class MovieCard extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   shape: const RoundedRectangleBorder(),
                 ),
-                child: const Text('View details'),
+                child: const Text('Book Now'),
                 onPressed: () {
                   Navigator.of(context).push(
                     MaterialPageRoute<void>(
