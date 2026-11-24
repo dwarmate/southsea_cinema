@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:southsea_cinema/models/movie.dart';
-import 'package:southsea_cinema/screens/order_screen.dart';
 
 class MovieCard extends StatelessWidget {
   final Movie movie;
@@ -9,10 +8,12 @@ class MovieCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+
     return Card(
-      margin: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -20,9 +21,9 @@ class MovieCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Image.asset(
-                  movie.posterPath,
-                  width: 80,
-                  height: 80,
+                  movie.posterImagePath,
+                  width: 90,
+                  height: 130,
                   fit: BoxFit.cover,
                 ),
                 const SizedBox(width: 16),
@@ -30,48 +31,29 @@ class MovieCard extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        movie.title,
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
+                      Text(movie.title, style: textTheme.titleLarge),
+                      Text('Age rating: ${movie.ageRating}'),
                       const SizedBox(height: 8),
-                      Text(
-                        movie.description,
-                        style: const TextStyle(color: Colors.black54),
-                      ),
+                      Text(movie.synopsis),
+                      const SizedBox(height: 8),
+                      Text('Screening: ${movie.screeningTime}'),
                     ],
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 16),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  '£${movie.price.toStringAsFixed(2)}',
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
+            const SizedBox(height: 12),
+            Align(
+              alignment: Alignment.centerRight,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  shape: const RoundedRectangleBorder(),
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return OrderScreen(movie: movie);
-                        },
-                      ),
-                    );
-                  },
-                  child: const Text('Order'),
-                ),
-              ],
+                onPressed: () {
+                  debugPrint('Book tickets for ${movie.title}');
+                },
+                child: const Text('Book Tickets'),
+              ),
             ),
           ],
         ),
