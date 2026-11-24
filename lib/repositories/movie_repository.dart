@@ -4,20 +4,24 @@ class MovieRepository {
   List<Movie> getMovies() {
     return const [
       Movie(
-        id: '1',
-        title: '72 Hours',
-        description:
-            'Two brothers who have three days to rescue a kidnapped girl.',
-        price: 7.50,
-        posterPath: 'assets/images/72_hours.jpeg',
+        id: 'red-notice',
+        title: 'Red Notice',
+        synopsis:
+            'An FBI agent teams up with an art thief to catch a rival criminal.',
+        ageRating: '12',
+        screeningTime: '6:00 PM',
+        ticketPrice: 8.50,
+        posterImagePath: 'assets/images/red_notice.jpg',
       ),
       Movie(
-        id: '2',
-        title: 'Red Notice',
-        description:
-            'An FBI agent who teams up with a thief to catch another thief.',
-        price: 4.50,
-        posterPath: 'assets/images/red_notice.jpeg',
+        id: '72-hours',
+        title: '72 Hours',
+        synopsis:
+            'Two brothers have three days to rescue their family from danger.',
+        ageRating: '15',
+        screeningTime: '8:30 PM',
+        ticketPrice: 9.00,
+        posterImagePath: 'assets/images/72_hours.jpg',
       ),
     ];
   }
