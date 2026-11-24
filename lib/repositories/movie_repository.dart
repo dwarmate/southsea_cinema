@@ -13,7 +13,7 @@ class MovieRepository {
       ),
       Movie(
         id: '2',
-        title: 'Red Notice'
+        title: 'Red Notice',
         description:
             'An FBI agent who teams up with a thief to catch another thief.',
         price: 4.50,
