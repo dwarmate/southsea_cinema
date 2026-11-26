@@ -43,5 +43,29 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Added 1 tickets to the order'), findsOneWidget);
+    await tester.binding.handlePopRoute();
+    await tester.pumpAndSettle();
+
+    expect(find.text('Movie Menu'), findsOneWidget);
+
+    final seventyTwoHoursCard = find.ancestor(
+      of: find.text('72 Hours'),
+      matching: find.byType(MovieCard),
+    );
+    final bookSeventyTwoHours = find.descendant(
+      of: seventyTwoHoursCard,
+      matching: find.text('Book Now'),
+    );
+
+    await tester.ensureVisible(bookSeventyTwoHours);
+    await tester.tap(bookSeventyTwoHours);
+    await tester.pumpAndSettle();
+
+    expect(find.byType(MovieListing), findsOneWidget);
+    expect(find.text('72 Hours'), findsOneWidget);
+    expect(find.text('Screening time: 8:30 PM'), findsOneWidget);
+    expect(find.text('Ticket price: £9.00'), findsOneWidget);
+    expect(find.text('Tickets selected: 1'), findsOneWidget);
+    expect(find.text('Added 1 tickets to the order'), findsNothing);
   });
 }
