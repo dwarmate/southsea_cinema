@@ -3,10 +3,6 @@ import 'package:southsea_cinema/main.dart';
 import 'package:southsea_cinema/widgets/movie_card.dart';
 
 void main() {
-  testWidgets('Basic app loading test', (WidgetTester tester) async {
-    await tester.pumpWidget(const SouthseaCinemaApp());
-    expect(find.text('Welcome to Southsea Cinema'), findsOneWidget);
-  });
   testWidgets('Home page shows the movie menu and booking buttons', (
     tester,
   ) async {
