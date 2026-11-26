@@ -42,7 +42,7 @@ class _MovieListingState extends State<MovieListing> {
             Text(movie.title),
             Text('Age rating: ${movie.ageRating}'),
             Text('Screening time: ${movie.screeningTime}'),
-            Text('Ticket price: £${movie.ticketPrice.toStringAsFixed(2)}'),
+            Text('Ticket price: ${movie.formattedPrice}'),
             const SizedBox(height: 8),
             Text(movie.synopsis),
             const SizedBox(height: 16),
